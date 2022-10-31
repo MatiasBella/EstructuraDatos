@@ -16,7 +16,7 @@ else:
     
 #b) Leer una frase y luego invierta el orden de las palabras en la frase. Por Ejemplo: “una imagen vale por
 # mil palabras” debe convertirse en “palabras mil por vale imagen una”.
-frase = input('Ingrese una frase para ser invertida: ')
+'''frase = input('Ingrese una frase para ser invertida: ')
 palabra = ''
 lista = []
 frase_final = ''
@@ -33,15 +33,111 @@ lista.reverse()
 
 for i in lista:
     frase_final += i + ' '
-print(frase_final)
+print(frase_final)'''
 
 #c) Simular la operación de colas de un Rapipago, que funciona con dos colas diferentes. El usuario llega y
 # se ubica en la cola de menor cantidad de personas. Al finalizar el proceso indique cuántos elementos tiene cada cola.
+'''cola1 = []
+cola2 = []
+nuevo_cliente = input('Ingreso un cliente? (SI o NO): ').upper()
+while nuevo_cliente != 'NO':
+    if len(cola1) <= len(cola2):
+        cola1.append(nuevo_cliente)
+        print('Dirijase a la cola 1')
+    elif len(cola2) < len(cola1):
+        cola2.append(nuevo_cliente)
+        print('Dirijase a la cola 2')
+    nuevo_cliente = input('Ingreso un cliente? (SI o NO): ').upper()
+print(f'En la cola1 hay {len(cola1)} clientes.')
+print(f'En la cola2 hay {len(cola2)} clientes.')'''
 
-#d) En un almacén se guarda mercadería en contenedores. No es posible colocar más de n contenedores uno encima
+#d) En un almacén se guarda mercadería en contenedores. No es posible colocar más de (n - 1) contenedores uno encima
 # del otro y, no hay área para más de 5 pilas de contenedores. Elabore un programa que permita gestionar el
 # ingreso y salida de contenedores. Note que para retirar un contenedor es necesario retirar los contenedores
 # que están encima de él y colocarlos en otra pila.
+
+#OPCION 1:
+
+'''n = int(input('Ingrese la cantidad maxima de contenedores que se pueden apilar: '))
+pila1 = []
+pila2 = []
+pila3 = []
+pila4 = []
+pila5 = []
+contenedor = int(input('Seleccione la operacion que desea hacer:\n\t1- AGREGAR CONTENEDOR\n\t2- SACAR CONTENEDOR\n\t5- EXIT\n\t'))
+
+while contenedor !=5:
+    if contenedor == 1:
+        if len(pila1) <= (n - 1):
+            pila1.append(contenedor)
+        elif len(pila2) <= (n - 1):
+            pila2.append(contenedor)
+        elif len(pila3) <= (n - 1):
+            pila3.append(contenedor)
+        elif len(pila4) <= (n - 1):
+            pila4.append(contenedor)
+        elif len(pila5) < (n - (n - 1)):
+            pila5.append(contenedor)
+        else:
+            print('\t\t\tERROR: Capacidad maxima de deposito alcanzada!!!\n\n\t\t\tSeleccione otra opcion')
+            pass
+    
+    if contenedor == 2:
+        print('De que pila desea extraer el contenedor:')
+        print(f'PILA1: {len(pila1)}, PILA2: {len(pila2)}, PILA3: {len(pila3)}, PILA4: {len(pila4)}, PILA5: {len(pila5)}')
+        e = int(input('\n\t1- Pila1\n\t2- Pila2\n\t3- Pila3\n\t4- Pila4\n\t5- Pila5\n\t'))
+        if e == 1:
+            pila1.pop()
+        if e == 2:
+            pila2.pop()
+        if e == 3:
+            pila3.pop()
+        if e == 4:
+            pila4.pop()
+        if e == 5:
+            pila5.pop()
+    print(pila1)
+    print(pila2)
+    print(pila3)
+    print(pila4)
+    print(pila5)
+    contenedor = int(input('Seleccione la operacion que desea hacer:\n\t1- AGREGAR CONTENEDOR\n\t2- SACAR CONTENEDOR\n\t5- EXIT\n\t'))'''
+
+#OPCION 2: DOBLE LISTA
+
+'''n = int(input('Ingrese la cantidad maxima de contenedores que se pueden apilar: '))
+pila1 = []
+pila2 = []
+pila3 = []
+pila4 = []
+pila5 = []
+deposito = [pila1, pila2, pila3, pila4, pila5]
+
+print('Seleccione la operacion que desea hacer:')
+contenedor = int(input('\n\t1- AGREGAR CONTENEDOR\n\t2- SACAR CONTENEDOR\n\t5- EXIT\n\t'))
+while contenedor != 5:
+    if contenedor == 1:
+        if len(pila1) <= (n - 1):
+            pila1.append(contenedor)
+        elif len(pila2) <= (n - 1):
+            pila2.append(contenedor)
+        elif len(pila3) <= (n - 1):
+            pila3.append(contenedor)
+        elif len(pila4) <= (n - 1):
+            pila4.append(contenedor)
+        elif len(pila5) < (n - (n - 1)):
+            pila5.append(contenedor)
+        else:
+            print('\t\t\tERROR: Capacidad maxima de deposito alcanzada!!!\n\n\t\t\tSeleccione otra opcion')
+            pass
+    
+    if contenedor == 2:
+        print('De que pila desea extraer el contenedor:')
+        print(f'PILA1: {len(pila1)}, PILA2: {len(pila2)}, PILA3: {len(pila3)}, PILA4: {len(pila4)}, PILA5: {len(pila5)}')
+        e = int(input('\n\t1- Pila1\t2- Pila2\t3- Pila3\n\t4- Pila4\n\t5- Pila5\t'))
+        deposito[(e-1)].pop()
+    print(deposito)
+    contenedor = int(input('Seleccione la operacion que desea hacer:\n\t1- AGREGAR CONTENEDOR\n\t2- SACAR CONTENEDOR\n\t5- EXIT\n\t'))'''
 
 #e) Se tiene una lista que contiene mensajes encriptados de varios usuarios. Cada mensaje se encierra entre {},
 # y para indicar que se terminó el área de mensajes de un usuario se usa un signo &. Indique cuántos usuarios y
