@@ -143,6 +143,18 @@ while contenedor != 5:
 # y para indicar que se terminó el área de mensajes de un usuario se usa un signo &. Indique cuántos usuarios y
 # cuántos mensajes hay en la lista, teniendo en cuenta que todos los mensajes están correctamente formados, es
 # decir comienzan con { y terminan con }. Y que es seguro que al menos exista un usuario en la lista.
+'''
+lista = [{'hola soy juan'}, {'hola soy pedro'}, '&',  {'hola soy yo'}]
+user = 1
+sms = 0
+
+for i in lista:
+    if i != '&':
+        sms += 1
+    elif i == '&':
+        user += 1
+print(f'Hay {user} usuarios y {sms} mensajes en la lista')
+'''
 
 #f) Se tiene una lista con los datos de los clientes de una compañía de telefonía celular, los cuales pueden
 # aparecer repetidos en la lista, si tienen registrado más de un número telefónico. La compañía para su próximo
@@ -152,3 +164,18 @@ while contenedor != 5:
 
 #g) Se tiene una lista que almacena pedidos en orden de llegada, por ende puede haber más de un pedido para el
 # mismo artículo. Crear una lista donde se almacene la cantidad de pedidos por artículo.
+
+pedidos = ['pan', 'facturas', 'pan', 'chipa', 'chipa', 'pan']
+articulos = []
+cant_art = []
+
+for i in pedidos:
+    if i not in articulos:
+        articulos.append(i)
+for i in articulos:
+    cant = pedidos.count(i)
+    cant = str(cant)
+    temp = i + ': ' + cant
+    cant_art.append(temp)
+print(cant_art)
+    
